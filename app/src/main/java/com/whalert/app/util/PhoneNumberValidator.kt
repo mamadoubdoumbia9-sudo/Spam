@@ -1,11 +1,17 @@
 package com.whalert.app.util
 
+import com.google.i18n.phonenumbers.NumberParseException
+import com.google.i18n.phonenumbers.PhoneNumberUtil
+import com.google.i18n.phonenumbers.Phonenumber
 import java.util.regex.Pattern
 
 /**
  * Utility class for validating phone numbers in E.164 format
+ * Uses Google's libphonenumber for accurate validation
  */
 object PhoneNumberValidator {
+
+    private val phoneNumberUtil: PhoneNumberUtil by lazy { PhoneNumberUtil.getInstance() }
 
     // E.164 format: + followed by country code (1-3 digits) and subscriber number
     // Total length: 1-15 digits (excluding the +)
@@ -40,10 +46,22 @@ object PhoneNumberValidator {
     )
 
     /**
-     * Validates if a phone number is in E.164 format
+     * Validates if a phone number is in E.164 format using regex
      */
     fun isValidE164(phoneNumber: String): Boolean {
         return E164_PATTERN.matcher(phoneNumber).matches()
+    }
+
+    /**
+     * Validates if a phone number is valid using Google's libphonenumber
+     */
+    fun isValidWithLibphonenumber(phoneNumber: String, defaultRegion: String = "US"): Boolean {
+        return try {
+            val parsedNumber = phoneNumberUtil.parse(phoneNumber, defaultRegion)
+            phoneNumberUtil.isValidNumber(parsedNumber)
+        } catch (e: NumberParseException) {
+            false
+        }
     }
 
     /**
@@ -56,38 +74,38 @@ object PhoneNumberValidator {
     }
 
     /**
-     * Cleans a phone number to E.164 format
+     * Cleans a phone number to E.164 format using libphonenumber
      */
     fun cleanToE164(phoneNumber: String): String? {
-        // Remove all non-digit characters
-        val digitsOnly = phoneNumber.replace("[^\\d]".toRegex(), "")
-        
-        // If it starts with 00, replace with +
-        if (digitsOnly.startsWith("00")) {
-            val withoutPrefix = digitsOnly.substring(2)
-            return "+$withoutPrefix"
-        }
-        
-        // If it starts with 0, try to determine country code
-        if (digitsOnly.startsWith("0")) {
-            // This is a simplified approach - in a real app, you'd use libphonenumber
-            return when (digitsOnly.length) {
-                10 -> "+1$digitsOnly" // US/CA
-                11 -> "+$digitsOnly" // Already has country code
-                else -> null
-            }
-        }
-        
-        // If it already starts with +, validate it
-        if (phoneNumber.startsWith("+")) {
-            return if (isValidE164(phoneNumber)) phoneNumber else null
-        }
-        
-        // Assume it's a local number and try to add country code
         return try {
-            // Default to +1 for US/Canada (simplified)
-            "+1$digitsOnly"
-        } catch (e: Exception) {
+            val parsedNumber = phoneNumberUtil.parse(phoneNumber, null)
+            val formatted = phoneNumberUtil.format(parsedNumber, Phonenumber.PhoneNumberFormat.E164)
+            if (isValidE164(formatted)) formatted else null
+        } catch (e: NumberParseException) {
+            // Fallback to regex-based cleaning
+            val digitsOnly = phoneNumber.replace("[^\\d]".toRegex(), "")
+            
+            if (digitsOnly.startsWith("00")) {
+                val withoutPrefix = digitsOnly.substring(2)
+                return if (isValidE164("+$withoutPrefix")) "+$withoutPrefix" else null
+            }
+            
+            if (digitsOnly.startsWith("+")) {
+                return if (isValidE164(digitsOnly)) digitsOnly else null
+            }
+            
+            null
+        }
+    }
+
+    /**
+     * Formats phone number to E.164 format with default region
+     */
+    fun formatToE164(phoneNumber: String, defaultRegion: String = "US"): String? {
+        return try {
+            val parsedNumber = phoneNumberUtil.parse(phoneNumber, defaultRegion)
+            phoneNumberUtil.format(parsedNumber, Phonenumber.PhoneNumberFormat.E164)
+        } catch (e: NumberParseException) {
             null
         }
     }
@@ -154,9 +172,18 @@ object PhoneNumberValidator {
     }
 
     /**
-     * Gets country name from country code
+     * Gets country name from country code using libphonenumber
      */
     fun getCountryName(countryCode: String): String {
+        return try {
+            val regionCode = phoneNumberUtil.getRegionCodeForCountryCode(countryCode.toInt())
+            if (regionCode != null && regionCode.isNotEmpty()) {
+                return regionCode
+            }
+        } catch (e: Exception) {
+            // Fallback to manual mapping
+        }
+        
         return when (countryCode) {
             "1" -> "États-Unis/Canada"
             "44" -> "Royaume-Uni"
@@ -179,6 +206,18 @@ object PhoneNumberValidator {
             "223" -> "Mali"
             "212" -> "Maroc"
             else -> "Inconnu"
+        }
+    }
+
+    /**
+     * Gets region code for a phone number
+     */
+    fun getRegionCode(phoneNumber: String): String? {
+        return try {
+            val parsedNumber = phoneNumberUtil.parse(phoneNumber, null)
+            phoneNumberUtil.getRegionCodeForNumber(parsedNumber)
+        } catch (e: NumberParseException) {
+            null
         }
     }
 

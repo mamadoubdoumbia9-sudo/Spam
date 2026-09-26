@@ -5,11 +5,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    
+    <!-- Required for Android 13+ -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    
+    <!-- Legacy storage permissions for Android 12 and below -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="32" />
 
     <application
         android:name=".di.WhAlertApplication"
@@ -24,18 +33,7 @@
         android:usesCleartextTraffic="false"
         tools:targetApi="35">
 
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="true"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.WhAlert"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <!-- Splash Screen (Entry Point) -->
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"
@@ -46,32 +44,53 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.onboarding.OnboardingActivity" />
-        <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.report.ReportActivity" />
-        <activity android:name=".ui.report.ReportDetailActivity" />
-        <activity android:name=".ui.report.ReportVerificationActivity" />
-        <activity android:name=".ui.history.ReportHistoryActivity" />
-        <activity android:name=".ui.guide.SecurityGuideActivity" />
-        <activity android:name=".ui.settings.SettingsActivity" />
-        <activity android:name=".ui.console.ConsoleActivity" />
-        <activity android:name=".ui.transparency.TransparencyActivity" />
+        <!-- Main Activity -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.WhAlert"
+            android:windowSoftInputMode="adjustResize" />
 
+        <!-- Other Activities (not exported) -->
+        <activity android:name=".ui.onboarding.OnboardingActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.auth.LoginActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.report.ReportActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.report.ReportDetailActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.report.ReportVerificationActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.history.ReportHistoryActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.guide.SecurityGuideActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.settings.SettingsActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.console.ConsoleActivity" 
+            android:exported="false" />
+        <activity android:name=".ui.transparency.TransparencyActivity" 
+            android:exported="false" />
+
+        <!-- Service -->
         <service
             android:name=".service.ReportSyncService"
             android:enabled="true"
             android:exported="false" />
 
+        <!-- Hilt -->
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
             android:authorities="${applicationId}.lifecycle-process"
             android:exported="false"
             android:multiprocess="true" />
 
+        <!-- Firebase Crashlytics -->
         <meta-data
             android:name="com.google.firebase.crashlytics.mapping_file_id"
             android:value="${googleCrashlyticsMappingFileId}" />
 
     </application>
-
 </manifest>

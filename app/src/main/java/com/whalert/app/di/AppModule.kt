@@ -126,7 +126,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.whalert.app/") // This would be your actual backend URL
+            .baseUrl("https://whalert-backend.firebaseapp.com/") // Firebase Hosting URL
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

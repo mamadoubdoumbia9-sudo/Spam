@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -57,6 +58,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -66,6 +68,8 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/versions/9/license.txt"
+            excludes += "META-INF/versions/9/notices.txt"
         }
     }
 
@@ -77,6 +81,10 @@ android {
 
     lint {
         abortOnError = false
+    }
+
+    packagingOptions {
+        pickFirsts.addAll(listOf("META-INF/license.txt", "META-INF/notices.txt"))
     }
 }
 
@@ -124,12 +132,22 @@ dependencies {
     // JSON
     implementation("com.google.code.gson:gson:2.10.1")
 
-    // Image Loading
+    // Phone Number Validation - Google's libphonenumber
+    implementation("com.googlecode.libphonenumber:libphonenumber:8.13.42")
+
+    // Android Keystore Security
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+    // Compose Animations
+    implementation("androidx.compose.animation:animation:2024.02.00")
+    implementation("androidx.compose.foundation:foundation:2024.02.00")
+
+    // Coil for image loading
     implementation("io.coil-kt:coil-compose:2.6.0")
 
-    // Security
-    implementation("androidx.security:security-crypto:1.1.0-alpha06")
-    implementation("com.google.android.gms:play-services-safetynet:18.0.2")
+    // Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))

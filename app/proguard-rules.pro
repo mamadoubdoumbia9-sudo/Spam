@@ -1,205 +1,180 @@
-# Android ProGuard rules for WhAlert application
-# https://developer.android.com/studio/build/shrink-code
+# WhAlert ProGuard/R8 Rules
+# Android ProGuard configuration for release builds
 
 # Basic ProGuard rules for Android
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-verbose
+
+# Keep all Activities, Services, BroadcastReceivers
 -keep public class * extends android.app.Activity
--keep public class * extends android.app.Application
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
--keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgent
--keep public class * extends android.preference.Preference
--keep public class * extends android.view.View
--keep public class * extends android.widget.BaseAdapter
--keep public class * extends android.support.v4.app.Fragment
--keep public class * extends android.arch.lifecycle.ViewModel
 
-# Keep all activities, services, and receivers
--keep public class * extends androidx.activity.ComponentActivity
--keep public class * extends androidx.fragment.app.Fragment
--keep public class * extends androidx.lifecycle.ViewModel
+# Keep all ViewModel classes
+-keep class androidx.lifecycle.ViewModel { *; }
+-keep class * extends androidx.lifecycle.ViewModel { *; }
 
-# Keep all Compose functions
--keep class androidx.compose.runtime.Composable { *; }
--keep class androidx.compose.runtime.ComposableTarget { *; }
--keep class androidx.compose.runtime.ComposableSingleton { *; }
--keep class androidx.compose.runtime.ComposableInstance { *; }
-
-# Keep all Room database classes
+# Keep Room Database components
 -keep class androidx.room.Database { *; }
 -keep class * extends androidx.room.Database { *; }
 -keep class androidx.room.Entity { *; }
+-keep class * extends androidx.room.Entity { *; }
 -keep class androidx.room.Dao { *; }
 -keep class * extends androidx.room.Dao { *; }
--keep class androidx.room.TypeConverter { *; }
--keep class * implements androidx.room.TypeConverter { *; }
+-keep class androidx.room.TypeConverters { *; }
+-keep class * extends androidx.room.TypeConverters { *; }
 
-# Keep all Retrofit service interfaces
--keep class com.whalert.app.service.* { *; }
--keep class com.whalert.app.repository.* { *; }
--keep class com.whalert.app.model.* { *; }
+# Keep Retrofit and OkHttp
+-keep class retrofit2.** { *; }
+-keep class okhttp3.** { *; }
+-keep class com.squareup.okhttp3.** { *; }
+-keep class com.squareup.retrofit2.** { *; }
+-keep interface retrofit2.** { *; }
+-keep interface okhttp3.** { *; }
 
-# Keep all data classes for serialization
--keepclassmembers class * {
-    @com.google.gson.annotations.SerializedName <fields>;
-}
-
-# Keep all Gson related classes
+# Keep Gson for JSON serialization
 -keep class com.google.gson.** { *; }
--keep class com.google.gson.annotations.** { *; }
+-keep class com.google.gson.reflect.TypeToken { *; }
 -keep class * implements com.google.gson.TypeAdapterFactory
 -keep class * implements com.google.gson.JsonSerializer
 -keep class * implements com.google.gson.JsonDeserializer
 
-# Keep all Firebase classes
+# Keep libphonenumber
+-keep class com.google.i18n.phonenumbers.** { *; }
+-keep class com.google.phonenumber.** { *; }
+
+# Keep Hilt/Dagger
+-keep class com.google.dagger.** { *; }
+-keep class dagger.** { *; }
+-keep class * extends dagger.Module { *; }
+-keep class * extends dagger.Component { *; }
+-keep class * extends javax.inject.Provider { *; }
+-keep class * extends javax.inject.Inject { *; }
+
+# Keep AndroidX components
+-keep class androidx.** { *; }
+-keep interface androidx.** { *; }
+
+# Keep Compose components
+-keep class androidx.compose.** { *; }
+-keep class androidx.ui.** { *; }
+-keep class com.whalert.app.ui.** { *; }
+
+# Keep Material components
+-keep class com.google.android.material.** { *; }
+
+# Keep Firebase components
 -keep class com.google.firebase.** { *; }
 -keep class com.google.android.gms.** { *; }
 
-# Keep all OkHttp classes
--keep class okhttp3.** { *; }
+# Keep Coil image loading
+-keep class coil.** { *; }
 -keep class okio.** { *; }
--keep interface okhttp3.** { *; }
 
-# Keep all Hilt/Dagger classes
--keep class dagger.** { *; }
--keep class * implements dagger.Module
--keep class * implements dagger.Component
--keep class * implements dagger.android.AndroidEntryPoint
--keep class * implements dagger.hilt.android.HiltModule
--keep class * implements dagger.hilt.android.HiltWorker
--keep class * implements dagger.hilt.android.HiltViewModel
-
-# Keep all Coroutines classes
+# Keep Kotlin coroutines
 -keep class kotlinx.coroutines.** { *; }
 -keep class kotlinx.coroutines.internal.** { *; }
 
-# Keep all Jetpack Compose classes
--keep class androidx.compose.** { *; }
--keep class androidx.ui.** { *; }
--keep class androidx.activity.** { *; }
--keep class androidx.navigation.** { *; }
-
-# Keep all Material 3 classes
--keep class com.google.android.material.** { *; }
--keep class androidx.compose.material3.** { *; }
-
-# Keep all lifecycle classes
--keep class androidx.lifecycle.** { *; }
-
-# Keep all Room classes
--keep class androidx.room.** { *; }
-
-# Keep all security classes
+# Keep Security Crypto
 -keep class androidx.security.** { *; }
 
-# Keep all Coil image loading classes
--keep class io.coil.** { *; }
-
-# Keep all WhAlert application classes
+# Keep our application classes
 -keep class com.whalert.app.** { *; }
 -keep interface com.whalert.app.** { *; }
 
-# Keep all enum classes
+# Keep enum classes
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
+
+# Keep R classes
+-keep class com.whalert.app.R { *; }
+-keep class com.whalert.app.R$* { *; }
+
+# Keep BuildConfig
+-keep class com.whalert.app.BuildConfig { *; }
+
+# Keep data models
+-keep class com.whalert.app.model.** { *; }
+-keep class com.whalert.app.data.** { *; }
+-keep class com.whalert.app.repository.** { *; }
+-keep class com.whalert.app.viewmodel.** { *; }
+-keep class com.whalert.app.util.** { *; }
+-keep class com.whalert.app.service.** { *; }
+-keep class com.whalert.app.di.** { *; }
+
+# Keep annotations
+-keepattributes *Annotation*
+-keepattributes SourceFile, LineNumberTable
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# Keep generic type information for reflection
+-keepattributes Signature
+
+# Keep method parameter names
+-keepparameters
+
+# Keep all WebView related classes
+-keep class * extends android.webkit.WebViewClient { *; }
 
 # Keep all Parcelable classes
 -keep class * implements android.os.Parcelable {
     public static final android.os.Parcelable$Creator *;
 }
 
-# Keep R classes
--keep class com.whalert.app.R { *; }
--keep class com.whalert.app.BuildConfig { *; }
-
-# Keep all classes that have custom Parcel or Serializable constructors
+# Keep all Serializable classes
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
-    private <init>(...);
-    private Object writeReplace();
-    private Object readResolve();
+    private <fields>;
+    private <methods>;
 }
 
-# Keep all classes that might be used in When clauses
--keep class * extends java.lang.Enum
--keep class * implements java.lang.annotation.Annotation
+# Optimizations
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+    public static *** w(...);
+    public static *** e(...);
+}
 
-# Keep all classes that might be used with @Keep annotation
--keep @com.android.annotations.Keep class *
--keep @androidx.annotation.Keep class *
--keep @dagger.hilt.android.internal.keep.Keep class *
+# Remove unused code
+-allowaccessmodification
+-allowoptimization
+-mergeinterfacesaggressively
+-shrinkresources
 
-# Keep all classes that might be used with @Inject annotation
--keep @javax.inject.Inject class *
--keep @dagger.Provides class *
--keep @dagger.Module class *
--keep @dagger.Component class *
+# Obfuscation dictionary for better readability
+-obfuscationdictionary /usr/share/dict/words
+-dontwarn okio.**
+-dontwarn retrofit2.**
+-dontwarn okhttp3.**
+-dontwarn com.squareup.okhttp3.**
+-dontwarn com.squareup.retrofit2.**
+-dontwarn com.google.gson.**
+-dontwarn com.google.i18n.phonenumbers.**
+-dontwarn androidx.room.**
+-dontwarn dagger.**
+-dontwarn com.google.dagger.**
+-dontwarn androidx.compose.**
+-dontwarn coil.**
 
-# Keep all classes that might be used with @Singleton annotation
--keep @javax.inject.Singleton class *
+# Keep names of native methods
+-keepclassmembers class * {
+    native <methods>;
+}
 
-# Keep all classes that might be used with @Binds annotation
--keep @dagger.Binds class *
+# Keep native libraries
+-keep class * extends java.lang.Object {
+    native <methods>;
+}
 
-# Keep all classes that might be used with @IntoSet annotation
--keep @dagger.multibindings.IntoSet class *
-
-# Keep all classes that might be used with @IntoMap annotation
--keep @dagger.multibindings.IntoMap class *
-
-# Keep all classes that might be used with @ClassKey annotation
--keep @dagger.multibindings.ClassKey class *
-
-# Keep all classes that might be used with @StringKey annotation
--keep @dagger.multibindings.StringKey class *
-
-# Keep all classes that might be used with @HiltAndroidApp annotation
--keep @dagger.hilt.android.HiltAndroidApp class *
-
-# Keep all classes that might be used with @HiltViewModel annotation
--keep @dagger.hilt.android.lifecycle.HiltViewModel class *
-
-# Keep all classes that might be used with @HiltWorker annotation
--keep @dagger.hilt.android.components.HiltWorker class *
-
-# Keep all classes that might be used with @HiltModule annotation
--keep @dagger.hilt.android.components.HiltModule class *
-
-# Keep all classes that might be used with @AndroidEntryPoint annotation
--keep @dagger.hilt.android.AndroidEntryPoint class *
-
-# Keep all classes that might be used with @HiltAndroidTest annotation
--keep @dagger.hilt.android.testing.HiltAndroidTest class *
-
-# Keep all classes that might be used with @HiltViewModel annotation
--keep @dagger.hilt.android.lifecycle.HiltViewModel class *
-
-# Keep all classes that might be used in When clauses for sealed classes
--keep class * extends kotlin.Enum
--keep class * implements kotlin.Enum
-
-# Keep all classes that might be used with @Composable annotation
--keep @androidx.compose.runtime.Composable class *
--keep @androidx.compose.runtime.Composable fun *
-
-# Keep all classes that might be used with @Preview annotation
--keep @androidx.compose.ui.tooling.preview.Preview class *
--keep @androidx.compose.ui.tooling.preview.Preview fun *
-
-# Keep all classes that might be used with @Stable annotation
--keep @androidx.compose.runtime.Stable class *
--keep @androidx.compose.runtime.Stable fun *
-
-# Keep all classes that might be used with @Immutable annotation
--keep @androidx.compose.runtime.Immutable class *
--keep @androidx.compose.runtime.Immutable fun *
-
-# Keep all classes that might be used with @ReadOnlyComposable annotation
--keep @androidx.compose.runtime.ReadOnlyComposable class *
--keep @androidx.compose.runtime.ReadOnlyComposable fun *
-
-# Keep all classes that might be used with @ComposableTarget annotation
--keep @androidx.compose.runtime.ComposableTarget class *
--keep @androidx.compose.runtime.ComposableTarget fun *
+# Print usage information
+-printusage unused
+-whyareyoukeeping class com.whalert.app.**
+-whyareyoukeeping class androidx.**
+-whyareyoukeeping class com.google.**

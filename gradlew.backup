@@ -96,8 +96,8 @@ if [ ! -f "$JAVA_EXE" ]; then
 fi
 
 # Check if the Java version is 1.8 or higher
-JAVA_VERSION=$("$JAVA_EXE" -version 2>&1 | head -1 | cut -d'"' -f2 | cut -d'.' -f1)
-if [ "$JAVA_VERSION" -lt 8 ]; then
+JAVA_VERSION=$("$JAVA_EXE" -version 2>&1 | head -1 | cut -d'"' -f2 | cut -d'.' -f1,2)
+if [ "$JAVA_VERSION" -lt "18" ]; then
     echo "ERROR: JAVA_HOME is set to: $JAVA_HOME"
     echo "       but the Java version is $JAVA_VERSION"
     echo "       Gradle requires Java 8 or higher."
