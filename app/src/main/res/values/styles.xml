@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Application Theme -->
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryContainer">@color/color_primary_container</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorOnPrimaryContainer">@color/color_on_primary_container</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryContainer">@color/color_secondary_container</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/color_on_secondary_container</item>
+        <item name="colorTertiary">@color/color_tertiary</item>
+        <item name="colorTertiaryContainer">@color/color_tertiary_container</item>
+        <item name="colorOnTertiary">@color/color_on_tertiary</item>
+        <item name="colorOnTertiaryContainer">@color/color_on_tertiary_container</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorErrorContainer">@color/color_error_container</item>
+        <item name="colorOnError">@color/color_on_error</item>
+        <item name="colorOnErrorContainer">@color/color_on_error_container</item>
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorSurfaceVariant">@color/color_surface_variant</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/color_on_surface_variant</item>
+        <item name="colorBackground">@color/color_background</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Widget.WhAlert.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:minWidth">@dimen/button_min_width_primary</item>
+        <item name="android:paddingHorizontal">@dimen/padding_lg</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">@dimen/button_corner_radius_medium</item>
+    </style>
+
+    <style name="Widget.WhAlert.Button.Outlined" parent="Widget.Material3.OutlinedButton">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:minWidth">@dimen/button_min_width</item>
+        <item name="android:paddingHorizontal">@dimen/padding_lg</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="cornerRadius">@dimen/button_corner_radius_medium</item>
+    </style>
+
+    <style name="Widget.WhAlert.Button.Text" parent="Widget.Material3.TextButton">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:minWidth">@dimen/button_min_width</item>
+        <item name="android:paddingHorizontal">@dimen/padding_lg</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+    </style>
+
+    <style name="Widget.WhAlert.Button.Icon" parent="Widget.Material3.IconButton">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:minWidth">@dimen/button_height_medium</item>
+        <item name="android:padding">@dimen/padding_sm</item>
+        <item name="android:contentDescription">@string/back</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Widget.WhAlert.Card" parent="Widget.Material3.Card">
+        <item name="android:padding">@dimen/card_padding</item>
+        <item name="cornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="Widget.WhAlert.Card.Elevated" parent="Widget.Material3.Card.Elevated">
+        <item name="android:padding">@dimen/card_padding</item>
+        <item name="cornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="Widget.WhAlert.Card.Outlined" parent="Widget.Material3.Card.Outlined">
+        <item name="android:padding">@dimen/card_padding</item>
+        <item name="cornerRadius">@dimen/card_corner_radius</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Text Field Styles -->
+    <style name="Widget.WhAlert.TextInputLayout.OutlinedBox" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/text_field_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/text_field_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/text_field_corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/text_field_corner_radius</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.WhAlert.TextInputEditText.Outlined" parent="Widget.Material3.TextInputEditText.Outlined">
+        <item name="android:paddingHorizontal">@dimen/text_field_padding_horizontal</item>
+        <item name="android:paddingVertical">@dimen/text_field_padding_vertical</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+    </style>
+
+    <!-- Chip Styles -->
+    <style name="Widget.WhAlert.Chip" parent="Widget.Material3.Chip">
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="chipCornerRadius">@dimen/chip_corner_radius</item>
+        <item name="chipPaddingHorizontal">@dimen/chip_padding_horizontal</item>
+        <item name="chipPaddingVertical">@dimen/chip_padding_vertical</item>
+    </style>
+
+    <!-- Dialog Styles -->
+    <style name="Widget.WhAlert.Dialog" parent="ThemeOverlay.Material3.Dialog">
+        <item name="alertDialogStyle">@style/AlertDialog.WhAlert</item>
+    </style>
+
+    <style name="AlertDialog.WhAlert" parent="Material3.AlertDialog">
+        <item name="android:padding">@dimen/dialog_padding</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.WhAlert.LargeComponent</item>
+    </style>
+
+    <!-- Bottom Sheet Styles -->
+    <style name="Widget.WhAlert.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="behavior_peekHeight">@dimen/modal_sheet_peek_height</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.WhAlert.LargeComponent</item>
+    </style>
+
+    <!-- Navigation Rail Styles -->
+    <style name="Widget.WhAlert.NavigationRail" parent="Widget.Material3.NavigationRail">
+        <item name="android:background">@color/color_surface</item>
+        <item name="android:elevation">@dimen/nav_rail_elevation</item>
+    </style>
+
+    <!-- Navigation Drawer Styles -->
+    <style name="Widget.WhAlert.NavigationDrawer" parent="Widget.Material3.NavigationDrawer">
+        <item name="android:background">@color/color_surface</item>
+        <item name="android:elevation">@dimen/nav_drawer_elevation</item>
+    </style>
+
+    <!-- Tab Layout Styles -->
+    <style name="Widget.WhAlert.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorCornerRadius">@dimen/button_corner_radius_pill</item>
+    </style>
+
+    <style name="Widget.WhAlert.TabLayout.Tab" parent="Widget.Material3.TabLayout.Tab">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="android:paddingHorizontal">@dimen/tab_padding_horizontal</item>
+        <item name="android:paddingVertical">@dimen/tab_padding_vertical</item>
+    </style>
+
+    <!-- Floating Action Button Styles -->
+    <style name="Widget.WhAlert.FloatingActionButton" parent="Widget.Material3.FloatingActionButton">
+        <item name="android:contentDescription">@string/new_report</item>
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.WhAlert.LargeComponent</item>
+    </style>
+
+    <!-- Snackbar Styles -->
+    <style name="Widget.WhAlert.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="android:elevation">@dimen/snackbar_elevation</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.WhAlert.MediumComponent</item>
+    </style>
+
+    <!-- Tooltip Styles -->
+    <style name="Widget.WhAlert.Tooltip" parent="Widget.Material3.Tooltip">
+        <item name="android:elevation">@dimen/tooltip_elevation</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.WhAlert.SmallComponent</item>
+    </style>
+
+    <!-- Switch Styles -->
+    <style name="Widget.WhAlert.Switch" parent="Widget.Material3.Switch">
+        <item name="thumbRadius">@dimen/switch_thumb_size</item>
+        <item name="trackHeight">@dimen/switch_track_height</item>
+    </style>
+
+    <!-- Checkbox Styles -->
+    <style name="Widget.WhAlert.Checkbox" parent="Widget.Material3.Checkbox">
+        <item name="android:minHeight">@dimen/checkbox_size</item>
+        <item name="android:minWidth">@dimen/checkbox_size</item>
+    </style>
+
+    <!-- Radio Button Styles -->
+    <style name="Widget.WhAlert.RadioButton" parent="Widget.Material3.RadioButton">
+        <item name="android:minHeight">@dimen/radio_button_size</item>
+        <item name="android:minWidth">@dimen/radio_button_size</item>
+    </style>
+
+    <!-- Progress Indicator Styles -->
+    <style name="Widget.WhAlert.CircularProgressIndicator" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="android:indeterminate">true</item>
+        <item name="trackThickness">@dimen/progress_stroke_width</item>
+    </style>
+
+    <style name="Widget.WhAlert.LinearProgressIndicator" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="android:indeterminate">true</item>
+        <item name="trackThickness">@dimen/progress_stroke_width</item>
+    </style>
+
+    <!-- Badge Styles -->
+    <style name="Widget.WhAlert.Badge" parent="Widget.Material3.Badge">
+        <item name="android:textSize">@dimen/badge_text_size</item>
+        <item name="cornerRadius">@dimen/badge_corner_radius</item>
+    </style>
+
+    <!-- App Bar Styles -->
+    <style name="Widget.WhAlert.AppBar" parent="Widget.Material3.AppBar">
+        <item name="android:elevation">@dimen/app_bar_elevation</item>
+        <item name="titleTextAppearance">@style/TextAppearance.WhAlert.TitleLarge</item>
+    </style>
+
+    <style name="Widget.WhAlert.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:elevation">@dimen/toolbar_elevation</item>
+        <item name="android:minHeight">@dimen/toolbar_height</item>
+        <item name="titleTextAppearance">@style/TextAppearance.WhAlert.TitleLarge</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.WhAlert.TitleMedium</item>
+    </style>
+
+    <!-- Bottom Navigation Styles -->
+    <style name="Widget.WhAlert.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:elevation">@dimen/bottom_nav_elevation</item>
+        <item name="android:itemIconTint">@color/color_on_surface_variant</item>
+        <item name="android:itemTextColor">@color/color_on_surface_variant</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.WhAlert.BottomNavigationView.ActiveIndicator</item>
+    </style>
+
+    <style name="Widget.WhAlert.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:background">@color/color_primary</item>
+        <item name="android:height">4dp</item>
+        <item name="cornerRadius">2dp</item>
+    </style>
+
+    <!-- Avatar Styles -->
+    <style name="Widget.WhAlert.Avatar" parent="Widget.Material3.Avatar">
+        <item name="shapeAppearance">@style/ShapeAppearance.WhAlert.LargeComponent</item>
+    </style>
+
+    <!-- Divider Styles -->
+    <style name="Widget.WhAlert.Divider" parent="Widget.Material3.Divider">
+        <item name="android:thickness">@dimen/divider_thickness</item>
+    </style>
+
+    <!-- List Item Styles -->
+    <style name="Widget.WhAlert.ListItem" parent="Widget.Material3.ListItem">
+        <item name="android:minHeight">@dimen/list_item_height</item>
+        <item name="android:padding">@dimen/list_item_padding</item>
+    </style>
+
+    <!-- Status Indicator Styles -->
+    <style name="Widget.WhAlert.StatusIndicator" parent="Widget.Material3.Chip">
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="chipCornerRadius">@dimen/button_corner_radius_pill</item>
+        <item name="chipPaddingHorizontal">@dimen/padding_xs</item>
+        <item name="chipPaddingVertical">@dimen/padding_xxs</item>
+    </style>
+
+    <!-- Category Indicator Styles -->
+    <style name="Widget.WhAlert.CategoryIndicator" parent="Widget.Material3.Chip">
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="chipCornerRadius">@dimen/button_corner_radius_pill</item>
+        <item name="chipPaddingHorizontal">@dimen/padding_sm</item>
+        <item name="chipPaddingVertical">@dimen/padding_xs</item>
+    </style>
+</resources>

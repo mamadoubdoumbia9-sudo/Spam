@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#6200EE</color>
+    <color name="color_primary_container">#EADDFF</color>
+    <color name="color_primary_dark">#3700B3</color>
+    <color name="color_secondary">#03DAC6</color>
+    <color name="color_secondary_container">#80F2E6</color>
+    <color name="color_tertiary">#FF4081</color>
+    <color name="color_tertiary_container">#FFD9E3</color>
+    
+    <color name="color_on_primary">#FFFFFF</color>
+    <color name="color_on_primary_container">#1F0066</color>
+    <color name="color_on_secondary">#FFFFFF</color>
+    <color name="color_on_secondary_container">#00363C</color>
+    <color name="color_on_tertiary">#FFFFFF</color>
+    <color name="color_on_tertiary_container">#5F142B</color>
+    
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_surface_variant">#F5F5F5</color>
+    <color name="color_on_surface">#1C1B1F</color>
+    <color name="color_on_surface_variant">#49454F</color>
+    
+    <color name="color_background">#FFFFFF</color>
+    <color name="color_on_background">#1C1B1F</color>
+    
+    <color name="color_error">#B3261E</color>
+    <color name="color_error_container">#F9DEDC</color>
+    <color name="color_on_error">#FFFFFF</color>
+    <color name="color_on_error_container">#410E0B</color>
+    
+    <color name="color_success">#006838</color>
+    <color name="color_success_container">#88F7A7</color>
+    <color name="color_on_success">#FFFFFF</color>
+    <color name="color_warning">#FF9800</color>
+    <color name="color_warning_container">#FFE0B2</color>
+    <color name="color_on_warning">#1F1B14</color>
+    
+    <!-- Semantic Colors -->
+    <color name="color_semantic_urgent">#FF0000</color>
+    <color name="color_semantic_high">#FF5722</color>
+    <color name="color_semantic_medium">#FF9800</color>
+    <color name="color_semantic_low">#FFC107</color>
+    <color name="color_semantic_info">#2196F3</color>
+    
+    <!-- Status Colors -->
+    <color name="status_draft">#9E9E9E</color>
+    <color name="status_prepared">#FFC107</color>
+    <color name="status_submitted">#2196F3</color>
+    <color name="status_confirmation_received">#4CAF50</color>
+    <color name="status_follow_up_needed">#FF9800</color>
+    <color name="status_closed">#795548</color>
+    <color name="status_unknown">#607D8B</color>
+    
+    <!-- Category Colors -->
+    <color name="category_spam">#FF5722</color>
+    <color name="category_scam">#E91E63</color>
+    <color name="category_impersonation">#9C27B0</color>
+    <color name="category_harassment">#F44336</color>
+    <color name="category_fraud">#FF9800</color>
+    <color name="category_malicious">#795548</color>
+    <color name="category_other">#607D8B</color>
+</resources>

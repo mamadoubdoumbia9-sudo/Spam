@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhAlert</string>
+    <string name="app_description">Application de signalement des comptes WhatsApp suspects</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="back">Retour</string>
+    <string name="next">Suivant</string>
+    <string name="save">Enregistrer</string>
+    <string name="delete">Supprimer</string>
+    <string name="edit">Modifier</string>
+    <string name="confirm">Confirmer</string>
+    <string name="send">Envoyer</string>
+    <string name="loading">Chargement...</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_title">Bienvenue sur WhAlert</string>
+    <string name="onboarding_subtitle">Signalez les comptes WhatsApp suspects en toute sécurité</string>
+    <string name="onboarding_skip">Passer</string>
+    <string name="onboarding_get_started">Commencer</string>
+    
+    <!-- Authentication -->
+    <string name="login_title">Connexion</string>
+    <string name="login_subtitle">Connectez-vous pour utiliser WhAlert</string>
+    <string name="email_hint">Adresse e-mail</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="forgot_password">Mot de passe oublié ?</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="sign_up">Créer un compte</string>
+    <string name="whatsapp_number_hint">Numéro WhatsApp (+XX...)</string>
+    <string name="connect_whatsapp">Connecter WhatsApp</string>
+    
+    <!-- Home -->
+    <string name="home_title">WhAlert</string>
+    <string name="home_subtitle">Signalez les comptes suspects</string>
+    <string name="new_report">Nouveau signalement</string>
+    <string name="my_reports">Mes signalements</string>
+    <string name="security_guide">Guide de sécurité</string>
+    <string name="settings">Paramètres</string>
+    <string name="transparency">Transparence</string>
+    <string name="console">Console privée</string>
+    <string name="connection_status_connected">Connecté</string>
+    <string name="connection_status_disconnected">Non connecté</string>
+    <string name="connection_status_expired">Session expirée</string>
+    <string name="connection_status_error">Erreur de connexion</string>
+    
+    <!-- Report -->
+    <string name="report_title">Nouveau signalement</string>
+    <string name="report_subtitle">Documenter un compte suspect</string>
+    <string name="phone_number_hint">Numéro WhatsApp (+XX XXXXXXXX)</string>
+    <string name="phone_number_error">Numéro invalide</string>
+    <string name="phone_number_disclaimer">Utilisez uniquement un numéro correspondant à un compte que vous souhaitez réellement signaler.</string>
+    
+    <string name="category_title">Catégorie du problème</string>
+    <string name="category_spam">Spam</string>
+    <string name="category_scam">Arnaque</string>
+    <string name="category_impersonation">Usurpation d'identité</string>
+    <string name="category_harassment">Harcèlement</string>
+    <string name="category_fraud">Contenu frauduleux</string>
+    <string name="category_malicious">Comportement malveillant</string>
+    <string name="category_other">Autre</string>
+    
+    <string name="description_hint">Décrivez précisément ce qui s'est passé...</string>
+    <string name="description_error">Description requise</string>
+    
+    <string name="evidence_title">Preuves (facultatif)</string>
+    <string name="evidence_screenshots">Captures d'écran</string>
+    <string name="evidence_text">Texte</string>
+    <string name="evidence_date_time">Date et heure</string>
+    <string name="evidence_additional">Informations complémentaires</string>
+    <string name="add_evidence">Ajouter des preuves</string>
+    
+    <!-- Verification -->
+    <string name="verification_title">Vérification du signalement</string>
+    <string name="verification_summary">Résumé du signalement</string>
+    <string name="verification_number">Numéro : %s</string>
+    <string name="verification_category">Motif : %s</string>
+    <string name="verification_description">Description : %s</string>
+    <string name="verification_attachments">Pièces jointes : %d</string>
+    <string name="verification_continue">Continuer vers le signalement officiel</string>
+    <string name="verification_disclaimer">Cette application ne peut pas garantir une suspension du compte. La décision appartient à WhatsApp.</string>
+    
+    <!-- Submission -->
+    <string name="submission_title">Transmission du signalement</string>
+    <string name="submission_confirmation">Confirmez-vous l'envoi ?</string>
+    <string name="submission_content_preview">Aperçu du contenu à envoyer</string>
+    <string name="submission_yes">OUI, CONTINUER</string>
+    <string name="submission_no">NON, ANNULER</string>
+    <string name="submission_send_confirmation">Confirmer l'envoi ?</string>
+    <string name="submission_send">ENVOYER</string>
+    <string name="submission_cancel">ANNULER</string>
+    <string name="submission_success">Le message a été remis au service d'e-mail configuré.</string>
+    <string name="submission_failure">L'envoi n'a pas abouti.</string>
+    
+    <!-- Status -->
+    <string name="status_title">État du signalement</string>
+    <string name="status_preparation">Préparation</string>
+    <string name="status_sent">Signalement transmis</string>
+    <string name="status_confirmation_available">Confirmation disponible</string>
+    <string name="status_confirmation_unavailable">Confirmation indisponible</string>
+    <string name="status_follow_up">Suivi</string>
+    <string name="status_unknown">STATUT INCONNU</string>
+    <string name="status_no_official_confirmation">WhatsApp ne fournit pas de confirmation publique permettant à cette application de vérifier directement si ce compte a été suspendu.</string>
+    <string name="status_sent_from_app">Signalement envoyé depuis cette application</string>
+    <string name="status_transmitted_to_official">Signalement transmis au canal officiel</string>
+    <string name="status_no_confirmation">Aucune confirmation disponible</string>
+    <string name="status_moderation_unknown">Décision de WhatsApp inconnue</string>
+    
+    <!-- History -->
+    <string name="history_title">Historique des signalements</string>
+    <string name="history_empty">Aucun signalement trouvé</string>
+    <string name="history_date">Date : %s</string>
+    <string name="history_number">Numéro : %s</string>
+    <string name="history_category">Catégorie : %s</string>
+    <string name="history_status">Statut : %s</string>
+    <string name="history_id">ID : %s</string>
+    <string name="history_masked">Masqué</string>
+    
+    <!-- Report Status Types -->
+    <string name="report_status_draft">Brouillon</string>
+    <string name="report_status_prepared">Préparé</string>
+    <string name="report_status_submitted">Soumis</string>
+    <string name="report_status_confirmation_received">Confirmation obtenue</string>
+    <string name="report_status_follow_up_needed">Suivi nécessaire</string>
+    <string name="report_status_closed">Clôturé</string>
+    
+    <!-- Guide -->
+    <string name="guide_title">Guide de sécurité</string>
+    <string name="guide_how_to_recognize_scam">Reconnaître une arnaque</string>
+    <string name="guide_how_to_recognize_fraud">Reconnaître un compte frauduleux</string>
+    <string name="guide_keep_evidence">Conserver les preuves</string>
+    <string name="guide_dont_threaten">Ne pas menacer l'autre personne</string>
+    <string name="guide_dont_fake_reports">Ne pas envoyer de faux signalements</string>
+    <string name="guide_use_official_mechanisms">Utiliser les mécanismes officiels</string>
+    <string name="guide_protect_information">Protéger ses propres informations</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_general">Général</string>
+    <string name="settings_account">Compte</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_security">Sécurité</string>
+    <string name="settings_about">À propos</string>
+    <string name="settings_logout">Se déconnecter</string>
+    <string name="settings_daily_limit">Limite quotidienne</string>
+    <string name="settings_daily_limit_description">Nombre maximum de signalements par 24 heures</string>
+    
+    <!-- Console -->
+    <string name="console_title">Console privée</string>
+    <string name="console_statistics">Statistiques</string>
+    <string name="console_total_reports">Total des signalements</string>
+    <string name="console_transmissions">Transmissions</string>
+    <string name="console_errors">Erreurs de transmission</string>
+    <string name="console_history">Historique technique</string>
+    <string name="console_limits">Limites</string>
+    <string name="console_logs">Journaux techniques</string>
+    <string name="console_backend_status">État du backend</string>
+    <string name="console_integrations">État des intégrations</string>
+    <string name="console_auth_required">Authentification requise</string>
+    
+    <!-- Transparency -->
+    <string name="transparency_title">Ce que cette application peut et ne peut pas faire</string>
+    <string name="transparency_can">Peut faire</string>
+    <string name="transparency_cannot">Ne peut pas faire</string>
+    <string name="transparency_can_prepare">Préparer un dossier</string>
+    <string name="transparency_can_organize">Organiser les preuves</string>
+    <string name="transparency_can_generate">Générer un texte de signalement</string>
+    <string name="transparency_can_request_confirmation">Demander confirmation</string>
+    <string name="transparency_can_transmit">Transmettre via un canal réellement disponible</string>
+    <string name="transparency_can_keep_history">Conserver l'historique de l'utilisateur</string>
+    <string name="transparency_can_show_confirmations">Afficher les confirmations techniques réellement reçues</string>
+    <string name="transparency_cannot_guarantee">Garantir un bannissement</string>
+    <string name="transparency_cannot_know">Connaître les décisions internes de WhatsApp sans source officielle</string>
+    <string name="transparency_cannot_fake">Envoyer de faux signalements</string>
+    <string name="transparency_cannot_multiply">Multiplier artificiellement les signalements</string>
+    <string name="transparency_cannot_bypass">Contourner les protections WhatsApp</string>
+    <string name="transparency_cannot_force">Forcer WhatsApp à suspendre un compte</string>
+    
+    <!-- Errors -->
+    <string name="error_network">Erreur réseau. Veuillez vérifier votre connexion.</string>
+    <string name="error_timeout">Délai d'attente dépassé</string>
+    <string name="error_server">Erreur serveur. Veuillez réessayer plus tard.</string>
+    <string name="error_invalid_data">Données invalides</string>
+    <string name="error_authentication">Authentification requise</string>
+    <string name="error_form_incomplete">Formulaire incomplet</string>
+    <string name="error_daily_limit_reached">Limite quotidienne atteinte (3 signalements max)</string>
+    <string name="error_invalid_number">Numéro invalide</string>
+    
+    <!-- Success Messages -->
+    <string name="success_report_created">Signalement créé</string>
+    <string name="success_report_submitted">Signalement soumis</string>
+    <string name="success_settings_saved">Paramètres enregistrés</string>
+    
+    <!-- Date & Time -->
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="time_format">HH:mm</string>
+    <string name="datetime_format">dd/MM/yyyy HH:mm</string>
+    
+    <!-- Actions -->
+    <string name="action_copy">Copier</string>
+    <string name="action_share">Partager</string>
+    <string name="action_open_in_whatsapp">Ouvrir dans WhatsApp</string>
+    
+    <!-- Console Authentication -->
+    <string name="console_login_title">Authentification Console</string>
+    <string name="console_login_subtitle">Accès réservé au propriétaire autorisé</string>
+    <string name="console_pin_hint">Code PIN</string>
+    <string name="console_biometric_prompt">Authentifiez-vous pour accéder à la console</string>
+    
+    <!-- Daily Limit -->
+    <string name="daily_limit_title">Limite de sécurité</string>
+    <string name="daily_limit_message">Limite de sécurité de l'application : 3 dossiers par 24 heures. Cette limite n'est pas présentée comme une règle officielle de WhatsApp.</string>
+    <string name="daily_limit_remaining">%d signalement(s) restant(s) aujourd'hui</string>
+    
+    <!-- Email -->
+    <string name="email_subject">Signalement d'un compte WhatsApp suspect</string>
+    <string name="email_content_header">Signalement WhAlert
+
+Numéro concerné : %s
+Motif : %s
+
+Résumé des faits :
+%s
+
+Date(s) des incidents : %s
+
+Éléments disponibles : %s
+
+Demande :
+Je demande à WhatsApp d'examiner les éléments transmis conformément à ses procédures et à ses conditions d'utilisation.</string>
+    <string name="email_destination">support@whatsapp.com</string>
+    
+    <!-- WhatsApp Official -->
+    <string name="whatsapp_official_report">Signaler via WhatsApp officiel</string>
+    <string name="whatsapp_official_message">Pour signaler un compte via WhatsApp, ouvrez la conversation avec le compte, appuyez sur les trois points (menu), puis sélectionnez "Signaler".</string>
+</resources>

@@ -1,0 +1,9 @@
+This is a placeholder for the actual gradle-wrapper.jar file.
+In a real Android project, this file would be downloaded by Gradle.
+For the purpose of this project structure, we include this placeholder.
+
+The actual gradle-wrapper.jar can be obtained by running:
+  gradle wrapper --gradle-version 8.2
+
+Or by downloading it from:
+  https://services.gradle.org/distributions/gradle-8.2-bin.zip
